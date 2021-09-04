@@ -2,6 +2,7 @@
 require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
+const http = require('http');
 const express = require('express');
 const cors = require('cors');
 const flash = require('connect-flash');
@@ -46,5 +47,17 @@ route.forEach((file) => {
 // });
 
 app.listen(PORT, async function () {
-  return console.log(`\n\nNODEJS Route IS ONLINE (HTTP)\nhttp://${DOMAIN}:${PORT}\n\n`);
+  console.log(`\n\nNODEJS Route IS ONLINE (HTTP)\nhttp://${DOMAIN}:${PORT}\n\n`);
+  
+  setInterval(() => {
+    http.get(`http://${process.env.DOMAIN}`, (res) => {
+      res.on('data', () => {
+        console.log(`\n사이트가 정상작동 중입니다.\n주소 : http://${process.env.DOMAIN}\n`);
+      });
+
+      res.on('error', () => {
+        console.log(`사이트에 오류가 발생했습니다.\n주소 : http://${process.env.DOMAIN}\nres: ${res.statusCode}`);
+      });
+    });
+  }, (60 * 1000) * Number(process.env.SLEEP_TIME));
 });
