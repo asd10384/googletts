@@ -1,7 +1,6 @@
 
 require('dotenv').config();
 const { writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } = require('fs');
-const db = require('quick.db');
 
 const { TextToSpeechClient } = require('@google-cloud/text-to-speech');
 const ttsclient = new TextToSpeechClient({

@@ -14,12 +14,22 @@ router.get('/', async (req, res) => {
   });
 });
 router.post('/', async (req, res) => {
-  const text = req.body.text || '테스트';
+  const text = req.body.text || null;
+  if (!text) return err(res, '메세지칸을 비워둘수 없습니다.');
   let fileurl = await tts(text);
-  if (fileurl == '오류') return res.status(404).send({err: 'tts 변환 실패'});
+  if (fileurl == '오류') return err(res, 'tts 변환 실패');
   return res.status(200).redirect(`file/${fileurl}`);
 });
 // 메인 끝
 
+function err(res, text = new String) {
+  return res.status(404).render('err', {
+    title: '트윕 TTS ERROR',
+    dec: '트윕 TTS 에러 사이트',
+    domain: process.env.DOMAIN,
+    url: `http://${process.env.DOMAIN}`,
+    err: text
+  });
+}
 
 module.exports = router;
