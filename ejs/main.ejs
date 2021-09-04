@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include('../header/header.ejs') %>
+
+    <title>트윕 TTS</title>
+  </head>
+  <body>
+    <h1>트윕 TTS 기본 목소리</h1>
+    <form method="POST" action="/">
+      <textarea class="text" name="text" onkeydown="javascript=resize(this);" onkeyup="javascript=resize(this);">테스트 메세지 입니다.</textarea>
+      <br>
+      <input class="btn" type="submit" value="파일로 변환">
+    </form>
+  </body>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      margin: 20px 0;
+    }
+    .text {
+      font-size: 20px;
+      min-width: 500px;
+      min-height: 100px;
+    }
+    .btn {
+      margin-top: 15px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function resize(obj) {
+      obj.style.height = '1px';
+      obj.style.height = (obj.scrollHeight)+"px";
+    }
+  </script>
+</html>
