@@ -7,7 +7,7 @@
   <body>
     <h1>트윕 TTS 기본 목소리</h1>
     <form method="POST" action="/">
-      <textarea class="text" name="text" onkeydown="javascript=resize(this);" onkeyup="javascript=resize(this);">테스트 메세지 입니다.</textarea>
+      <textarea class="text" name="text" onkeydown="javascript=resize(this);" onkeyup="javascript=resize(this);" placeholder="여기에 메세지를 입력하세요."></textarea>
       <br>
       <input class="btn" type="submit" value="파일로 변환">
     </form>
@@ -22,13 +22,18 @@
     }
     .text {
       font-size: 20px;
-      min-width: 500px;
+      min-width: 350px;
       min-height: 100px;
     }
     .btn {
       margin-top: 15px;
       font-size: 30px;
       font-weight: bold;
+    }
+    @media screen and (max-width: 480px) {
+      .text {
+        min-width: 85%;
+      }
     }
   </style>
   <script>
