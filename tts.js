@@ -39,7 +39,6 @@ function rn() {
   return num.toString().replace(/.+\./g, '');
 }
 
-
 async function gettext(text = new String) {
   let response;
   response = await ttsclient.synthesizeSpeech({
@@ -61,4 +60,7 @@ async function gettext(text = new String) {
   if (!response) return null;
   return response[0].audioContent;
 }
-// 출력 끝
+
+module.exports.audiofilelist = function () {
+  return readdirSync(audiofile);
+}

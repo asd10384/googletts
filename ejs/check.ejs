@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include('../header/header.ejs') %>
+
+    <title>트윕 TTS</title>
+  </head>
+  <body>
+    <h1>트윕 TTS 리스트</h1>
+    <div class="list"><%- audiolist %>
+    </div>
+  </body>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      margin: 20px 0;
+    }
+  </style>
+</html>
