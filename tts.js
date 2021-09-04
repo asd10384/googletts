@@ -55,6 +55,7 @@ async function gettext(text = new String) {
       // effectsProfileId: ['medium-bluetooth-speaker-class-device'] // 효과 https://cloud.google.com/text-to-speech/docs/audio-profiles
     },
   }).catch((err) => {
+    console.log(err);
     return null;
   });
   if (!response) return null;
