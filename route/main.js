@@ -6,7 +6,12 @@ const tts = require('../tts');
 
 // 메인 시작
 router.get('/', async (req, res) => {
-  return res.status(200).render('main', {});
+  return res.status(200).render('main', {
+    title: '트윕 TTS',
+    dec: '트윕 TTS mp3 파일로 직접 제작',
+    domain: process.env.DOMAIN,
+    url: `http://${process.env.DOMAIN}`
+  });
 });
 router.post('/', async (req, res) => {
   const text = req.body.text || '테스트';

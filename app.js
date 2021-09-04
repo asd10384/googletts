@@ -12,7 +12,7 @@ const sessionParser = require('express-session');
 require('./googlettsapi').getkeyfile();
 
 const app = express();
-const DOMAIN = process.env.DOMAIN || 'http://localhost';
+const DOMAIN = process.env.DOMAIN || 'localhost';
 const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -46,5 +46,5 @@ route.forEach((file) => {
 // });
 
 app.listen(PORT, async function () {
-  return console.log(`NODEJS Route IS ONLINE (HTTP)\n${DOMAIN}:${PORT}`);
+  return console.log(`\n\nNODEJS Route IS ONLINE (HTTP)\nhttp://${DOMAIN}:${PORT}\n\n`);
 });
